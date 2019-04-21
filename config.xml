@@ -34,6 +34,28 @@
                 <client-authentication-mode>REQUIRED</client-authentication-mode>
             </tls>
         </tls-tcp-listener>
+        <tls-websocket-listener>
+            <port>8001</port>
+            <bind-address>0.0.0.0</bind-address>
+            <path>/mqtt</path>
+            <allow-extensions>false</allow-extensions>
+            <subprotocols>
+                <subprotocol>mqttv3.1</subprotocol>
+                <subprotocol>mqtt</subprotocol>
+            </subprotocols>
+            <tls>
+                <keystore>
+                    <path>hivemq.jks</path>
+                    <password>changeme</password>
+                    <private-key-password>changeme</private-key-password>
+                </keystore>
+                <truststore>
+                    <path>hivemq-trust-store.jks</path>
+                    <password>changeme</password>
+                </truststore>
+                <client-authentication-mode>NONE</client-authentication-mode>
+            </tls>
+        </tls-websocket-listener>
     </listeners>
 
 </hivemq>
